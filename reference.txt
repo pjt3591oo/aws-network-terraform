@@ -1,0 +1,1 @@
+resource/architecture.png => https://library.gabia.com/contents/8892/
