@@ -205,6 +205,8 @@ export AWS_SECRET_ACCESS_KEY="test"
 export AWS_DEFAULT_REGION="us-east-1"
 ```
 
+aws_secret.tf는 aws 접속을 위한 환경변수 정보를 가진다. 여기서는 .gitignore로 관리하지 않지만 aws, db 접속같은 중요 정보는 gitignore로 관리한다.
+
 ### 네트워크 생성
 
 * dev
