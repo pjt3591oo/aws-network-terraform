@@ -1,12 +1,12 @@
 # 테라폼으로 이해하는 AWS 네트워크 구성
 
-### 구성요소
+## 구성요소
 
 클라우드의 네트워크는 다음과 같은 모습을 가진다.
 
 ![](./resource/architecture.png)
 
-##### Internet Gateway 
+### Internet Gateway 
 
 VPC에서 네트워크 통신이 가능하게 함
 
@@ -16,7 +16,7 @@ public subnet이라고 부름
 
 route table에서 연결할 수 있다.
 
-##### NAT Gateway
+### NAT Gateway
 
 NAT Gateway는 네트워크 주소변환 서비스
 
@@ -26,11 +26,11 @@ NAT Gateway는 public Subnet에 위치
 
 route table을 통해서 연결할 수 있다.
 
-##### VPC(virtual private cloud)
+### VPC(virtual private cloud)
 
 가상의 네트워크 망
 
-##### Subnet
+### Subnet
 
 * public Subnet
 
@@ -42,7 +42,7 @@ route table을 통해서 연결할 수 있다.
 
 외부 네트워크 망과 inbound/outbound를 허용하지 않음
 
-##### route table
+### route table
 
 라우팅이 설정되지 않은 서브넷은 정상적으로 외부와 통신이 되지 않는다.
 
@@ -51,7 +51,7 @@ public subnet의 0.0.0.0/0은 IGW로 설정
 private subnet의 0.0.0.0/0은 NAT Gateway로 설정
 
 
-##### NACL(Network ACL)
+### NACL(Network ACL)
 
 서브넷을 들어오고 나가는 트래픽 제어. VPC를 위한 선택적 보안계층
 
@@ -59,7 +59,7 @@ private subnet의 0.0.0.0/0은 NAT Gateway로 설정
 
 Stateless
 
-##### Security Group
+### Security Group
 
 인스턴스 수준에서 동작
 
@@ -67,7 +67,7 @@ Statefull
 
 ---
 
-### 네트워크 구성하기
+## 네트워크 구성하기
 
 해당 예시에서는 NACL과 Security group은 별도로 정의하지 않는다.
 
@@ -75,7 +75,7 @@ Statefull
 
 가장 위의 VPC부터 dev, stage, prod 네트워크 대역
 
-##### dev
+### dev
 
 * vpc
 
@@ -113,7 +113,7 @@ private-subnet2
 
 public-subnet1에 위치
 
-##### stage
+### stage
 
 * vpc
 
@@ -151,7 +151,7 @@ private-subnet2
 
 public-subnet1에 위치
 
-##### prod
+### prod
 
 * vpc
 
@@ -189,9 +189,9 @@ private-subnet2
 
 public-subnet1에 위치
 
-### 수행
+## 수행
 
-##### localstack 실행 & 환경변수
+### localstack 실행 & 환경변수
 
 ```bash
 $ localstack start
@@ -205,7 +205,7 @@ export AWS_SECRET_ACCESS_KEY="test"
 export AWS_DEFAULT_REGION="us-east-1"
 ```
 
-##### 네트워크 생성
+### 네트워크 생성
 
 * dev
 
@@ -244,7 +244,7 @@ $ terraform plan
 $ terraform apply
 ```
 
-##### eip 조회
+### eip 조회
 
 ```bash
 $ aws --endpoint-url http://localhost:4566 ec2 describe-addresses | jq
@@ -303,7 +303,7 @@ $ aws --endpoint-url http://localhost:4566 ec2 describe-addresses | jq
 }
 ```
 
-##### vpc 조회
+### vpc 조회
 
 ```bash
 $ aws --endpoint-url http://localhost:4566 ec2 describe-vpcs | jq
@@ -409,7 +409,7 @@ $ aws --endpoint-url http://localhost:4566 ec2 describe-vpcs | jq
 }
 ```
 
-##### subnet 조회
+### subnet 조회
 
 ```bash
 $ aws --endpoint-url http://localhost:4566 ec2 describe-subnets| jq
@@ -817,7 +817,7 @@ $ aws --endpoint-url http://localhost:4566 ec2 describe-subnets| jq
 
 ```
 
-##### internet gateway 조회
+### internet gateway 조회
 
 ```shell
 $ aws --endpoint-url http://localhost:4566 ec2 describe-internet-gateways | jq
@@ -875,7 +875,7 @@ $ aws --endpoint-url http://localhost:4566 ec2 describe-internet-gateways | jq
 }
 ```
 
-##### nat gateway 조회
+### nat gateway 조회
 
 ```bash
 $ aws --endpoint-url http://localhost:4566 ec2 describe-nat-gateways | jq
@@ -951,7 +951,7 @@ $ aws --endpoint-url http://localhost:4566 ec2 describe-nat-gateways | jq
 }
 ```
 
-##### route table 조회
+### route table 조회
 
 ```bash
 $ aws --endpoint-url http://localhost:4566 ec2 describe-route-tables | jq
