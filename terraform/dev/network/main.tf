@@ -133,7 +133,7 @@ resource "aws_route_table" "private-route-table" {
   # route를 정의하지 않고 aws_route로 정의할 수 있다.
   route {
     cidr_block = "0.0.0.0/0"
-    gateway_id = "${aws_nat_gateway.dev-natgw.id}"
+    nat_gateway_id = "${aws_nat_gateway.dev-natgw.id}"
   }
   tags = {
     Name = "private-route-tabler"  
