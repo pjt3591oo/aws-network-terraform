@@ -1,0 +1,1 @@
+localstack pod save file://$PWD/pods/pods.state

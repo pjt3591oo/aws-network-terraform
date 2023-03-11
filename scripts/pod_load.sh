@@ -1,0 +1,1 @@
+localstack pod load file://$PWD/pods/pods.state
