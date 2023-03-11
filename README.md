@@ -75,40 +75,6 @@ Statefull
 
 가장 위의 VPC부터 dev, stage, prod 네트워크 대역
 
-### scripts
-
-편의를 위해 유틸리티 스크립트 제공
-
-```
-clean.sh
-
-pod_load.sh
-
-pod_save.sh
-
-start_dev_network.sh
-
-start_stage_network.sh
-
-start_prod_network.sh
-```
-
-* clean.sh
-
-./terraform 아래에 테라폼 실행을 위한 모든 파일 or 디렉터리 제거
-
-* pod_save.sh
-
-로컬스택의 현재 상태를 pods/pods.state로 저장
-
-* pod_load.sh
-
-pods/pods.state로 로컬스택 상태 로드
-
-* start_*_network.sh
-
-./terraform에 정의된 네트워크 테라폼 실행
-
 ### dev
 
 * vpc
@@ -279,6 +245,40 @@ $ terraform plan
 
 $ terraform apply
 ```
+
+### scripts
+
+편의를 위해 유틸리티 스크립트 제공
+
+```
+clean.sh
+
+pod_load.sh
+
+pod_save.sh
+
+start_dev_network.sh
+
+start_stage_network.sh
+
+start_prod_network.sh
+```
+
+* clean.sh
+
+./terraform 아래에 테라폼 실행을 위한 모든 파일 or 디렉터리 제거
+
+* pod_save.sh
+
+로컬스택의 현재 상태를 pods/pods.state로 저장
+
+* pod_load.sh
+
+pods/pods.state로 로컬스택 상태 로드
+
+* start_*_network.sh
+
+./terraform에 정의된 네트워크 테라폼 실행
 
 ### eip 조회
 
