@@ -1,6 +1,6 @@
 MODE="prod"
 
-BASE_PATH="terraform/${MODE}/network"
+BASE_PATH="terraform/${MODE}"
 
 cd ${BASE_PATH}
 

@@ -212,7 +212,7 @@ aws_secret.tf는 aws 접속을 위한 환경변수 정보를 가진다. 여기�
 * dev
 
 ```
-$ cd terraform/dev/network
+$ cd terraform/dev
 
 $ terraform init
 
@@ -225,7 +225,7 @@ $ terraform apply
 
 
 ```
-$ cd terraform/stage/network
+$ cd terraform/stage
 
 $ terraform init
 
@@ -237,7 +237,7 @@ $ terraform apply
 * prod
 
 ```
-$ cd terraform/prod/network
+$ cd terraform/prod
 
 $ terraform init
 

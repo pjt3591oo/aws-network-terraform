@@ -2,7 +2,7 @@
 
 function concat_strings {
   local mode="$1"
-  local rst="./terraform/${1}/network"
+  local rst="./terraform/${1}"
   echo "${rst}" # return
 }
 
