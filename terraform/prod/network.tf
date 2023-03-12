@@ -10,7 +10,7 @@ resource "aws_vpc" "vpc_prod" {
   }
 }
 
-# ======= Subnmet =======
+# ======= Subnet =======
 resource "aws_subnet" "pub-subnet1" {
   vpc_id      = aws_vpc.vpc_prod.id
   cidr_block  = "10.12.1.0/24" # 10.12.1.0 ~ 10.12.1.255
